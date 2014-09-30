@@ -66,4 +66,15 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("length") {
+
+    it("should be 0 for empty list") {
+      assert(length(Nil) == 0)
+    }
+
+    it("should be 3 for (1,2,3)") {
+      assert(length(List(1, 2, 3)) == 3)
+    }
+  }
+
 }
