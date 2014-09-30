@@ -117,4 +117,10 @@ class ListTest extends FunSpec {
       assert(map(List(1, 2, 3))(_ + 1) == List(2, 3, 4))
     }
   }
+
+  describe("filter") {
+    it("should return only even numer") {
+      assert(filter(List(1, 2, 3, 4, 5, 6, 7))(_ % 2 == 0) == List(2, 4, 6))
+    }
+  }
 }
