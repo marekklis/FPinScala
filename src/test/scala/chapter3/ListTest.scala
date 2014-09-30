@@ -77,4 +77,10 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("reverse") {
+    it("should be (3,2,1) from (1,2,3)") {
+      assert(reverse(List(1, 2, 3)) == List(3, 2, 1))
+    }
+  }
+
 }

@@ -98,5 +98,9 @@ object List {
   def product3(l: List[Double]) =
     foldLeft(l, 1.0)(_ * _)
 
+  def length2[A](l: List[A]): Int = foldLeft(l, 0)((acc, _) => acc + 1)
+
+  def reverse[A](l: List[A]): List[A] = foldLeft(l, Nil: List[A])((acc, b) => Cons(b, acc))
+
   def map[A, B](l: List[A])(f: A => B): List[B] = sys.error("todo")
 }
