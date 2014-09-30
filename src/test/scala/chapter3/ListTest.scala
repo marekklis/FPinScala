@@ -59,4 +59,11 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("init") {
+
+    it("should return (1,2,3) for (1,2,3,4)") {
+      assert(init(List(1, 2, 3, 4)) == List(1, 2, 3))
+    }
+  }
+
 }

@@ -78,7 +78,11 @@ object List {
     case _ => l
   }
 
-  def init[A](l: List[A]): List[A] = sys.error("todo")
+  def init[A](l: List[A]): List[A] = l match {
+    case Nil => sys.error("init of empty list")
+    case Cons(_, Nil) => Nil
+    case Cons(x, xs) => Cons(x, init(xs))
+  }
 
   def length[A](l: List[A]): Int = sys.error("todo")
 
