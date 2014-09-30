@@ -112,4 +112,9 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("map") {
+    it("should return (2,3,4) for (1,2,3)") {
+      assert(map(List(1, 2, 3))(_ + 1) == List(2, 3, 4))
+    }
+  }
 }
