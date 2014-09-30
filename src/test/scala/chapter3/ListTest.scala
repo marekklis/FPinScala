@@ -83,4 +83,15 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("append") {
+
+    it("with foldRight should be (1,2,3,4,5,6,7) from (1,2,3) and (4,5,6,7)") {
+      assert(append2(List(1, 2, 3), List(4, 5, 6, 7)) == List(1, 2, 3, 4, 5, 6, 7))
+    }
+
+    it("with foldLeft should be (1,2,3,4,5,6,7) from (1,2,3) and (4,5,6,7)") {
+      assert(append3(List(1, 2, 3), List(4, 5, 6, 7)) == List(1, 2, 3, 4, 5, 6, 7))
+    }
+  }
+
 }
