@@ -92,5 +92,11 @@ object List {
     case Cons(h, t) => foldLeft(t, f(z, h))(f)
   }
 
+  def sum3(l: List[Int]): Int =
+    foldLeft(l, 0)(_ + _)
+
+  def product3(l: List[Double]) =
+    foldLeft(l, 1.0)(_ * _)
+
   def map[A, B](l: List[A])(f: A => B): List[B] = sys.error("todo")
 }
