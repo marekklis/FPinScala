@@ -100,4 +100,10 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("add1") {
+    it("should return (2,3,4) for (1,2,3)") {
+      assert(add1(List(1, 2, 3)) == List(2, 3, 4))
+    }
+  }
+
 }
