@@ -106,4 +106,10 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("doubleToString") {
+    it("should convert double to string") {
+      assert(doubleToString(List(1.0, 2.0, 3.0)) == List("1.0", "2.0", "3.0"))
+    }
+  }
+
 }
