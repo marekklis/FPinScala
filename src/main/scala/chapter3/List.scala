@@ -124,4 +124,10 @@ object List {
   def flatMap[A, B](as: List[A])(f: A => List[B]): List[B] = foldRight(as, Nil: List[B])((h, t) => append(f(h), t))
 
   def filterViaFlatMap[A](as: List[A])(f: A => Boolean): List[A] = flatMap(as)((a) => if (f(a)) List(a) else Nil)
+
+  def addPairwise(l: List[Int], r: List[Int]): List[Int] = (l, r) match {
+    case (Nil, _) => Nil
+    case (_, Nil) => Nil
+    case (Cons(h1, t1), Cons(h2, t2)) => Cons(h1 + h2, addPairwise(t1, t2))
+  }
 }
