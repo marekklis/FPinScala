@@ -44,4 +44,19 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("dropWhile") {
+
+    it("should be Nil when dropping from (1,2,3,4,5)") {
+      assert(dropWhile(List(1, 2, 3, 4, 5), (a: Int) => a < 10) == Nil)
+    }
+
+    it("should be (1,2,3,4,5) when dropping from (1,2,3,4,5)") {
+      assert(dropWhile(List(1, 2, 3, 4, 5), (a: Int) => a < 0) == List(1, 2, 3, 4, 5))
+    }
+
+    it("should be (4,5) when dropping from (1,2,3,4,5)") {
+      assert(dropWhile(List(1, 2, 3, 4, 5), (a: Int) => a < 4) == List(4, 5))
+    }
+  }
+
 }
