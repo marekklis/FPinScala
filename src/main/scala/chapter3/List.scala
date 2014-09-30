@@ -110,5 +110,7 @@ object List {
 
   def append3[A](a1: List[A], a2: List[A]): List[A] = foldLeft(reverse(a1), a2)((acc, a) => Cons(a, acc))
 
+  def concat[A](l: List[List[A]]): List[A] = foldRight(l, Nil: List[A])(append)
+
   def map[A, B](l: List[A])(f: A => B): List[B] = sys.error("todo")
 }

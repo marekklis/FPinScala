@@ -94,4 +94,10 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("concat") {
+    it("should concat ((1),(2,3,4),(5,6)) to (1,2,3,4,5,6)") {
+      assert(concat(List(List(1), List(2, 3, 4), List(5, 6))) == List(1, 2, 3, 4, 5, 6))
+    }
+  }
+
 }
