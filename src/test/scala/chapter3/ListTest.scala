@@ -33,4 +33,15 @@ class ListTest extends FunSpec {
     }
   }
 
+  describe("drop") {
+
+    it("should be Nil when dropping 3 elements from (1,2)") {
+      assert(drop(List(1, 2), 3) == Nil)
+    }
+
+    it("should be (4,5) when dropping 3 elements from (1,2,3,4,5)") {
+      assert(drop(List(1, 2, 3, 4, 5), 3) == List(4, 5))
+    }
+  }
+
 }
