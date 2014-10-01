@@ -37,6 +37,9 @@ class TreeTest extends FunSpec {
     it("should maximumViaFold") {
       assert(maximumViaFold(Branch(Branch(Leaf(1), Leaf(7)), Branch(Leaf(6), Leaf(5)))) == 7)
     }
+    it("should deptViaFold") {
+      assert(depthViaFold(Branch(Leaf(1), Branch(Leaf(2), Branch(Leaf(3), Branch(Leaf(4), Leaf(5)))))) == 4)
+    }
 
   }
 
