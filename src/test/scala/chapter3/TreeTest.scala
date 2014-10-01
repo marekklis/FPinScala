@@ -30,4 +30,10 @@ class TreeTest extends FunSpec {
     }
   }
 
+  describe("fold") {
+    it("should sizeViaFold") {
+      assert(sizeViaFold(Branch(Branch(Leaf("a"), Leaf("b")), Branch(Leaf("c"), Leaf("d")))) == 7)
+    }
+  }
+
 }
