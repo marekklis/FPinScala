@@ -17,4 +17,10 @@ class TreeTest extends FunSpec {
     }
   }
 
+  describe("depth") {
+    it("should be 4") {
+      assert(maximum(Branch(Leaf(1), Branch(Leaf(2), Branch(Leaf(3), Branch(Leaf(4), Leaf(5)))))) == 5) // why 5 WTF????
+    }
+  }
+
 }
