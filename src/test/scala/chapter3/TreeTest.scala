@@ -40,6 +40,10 @@ class TreeTest extends FunSpec {
     it("should deptViaFold") {
       assert(depthViaFold(Branch(Leaf(1), Branch(Leaf(2), Branch(Leaf(3), Branch(Leaf(4), Leaf(5)))))) == 4)
     }
+    it("should mapViaFold") {
+      assert(mapViaFold(Branch(Branch(Leaf(1), Leaf(7)), Branch(Leaf(6), Leaf(5))))(_ * 2) ==
+        Branch(Branch(Leaf(2), Leaf(14)), Branch(Leaf(12), Leaf(10))))
+    }
 
   }
 
