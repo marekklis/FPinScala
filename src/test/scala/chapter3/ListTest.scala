@@ -147,4 +147,21 @@ class ListTest extends FunSpec {
       assert(zipWith(List(1, 2, 3), List(4, 5, 6))(_ + _) == List(5, 7, 9))
     }
   }
+
+  describe("hasSubsequence (1,2,3,4)") {
+
+    it("should has (1,2)") {
+      assert(hasSubsequence(List(1, 2, 3, 4), List(1, 2)))
+    }
+    it("should has (2,3)") {
+      assert(hasSubsequence(List(1, 2, 3, 4), List(2, 3)))
+    }
+    it("should has (4)") {
+      assert(hasSubsequence(List(1, 2, 3, 4), List(4)))
+    }
+    it("should not has (4,5)") {
+      assert(!hasSubsequence(List(1, 2, 3, 4), List(4, 5)))
+    }
+  }
+
 }
