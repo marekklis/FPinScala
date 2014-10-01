@@ -23,4 +23,11 @@ class TreeTest extends FunSpec {
     }
   }
 
+  describe("map") {
+    it("should remap") {
+      assert(map(Branch(Branch(Leaf(1), Leaf(7)), Branch(Leaf(6), Leaf(5))))(_ * 2) ==
+        Branch(Branch(Leaf(2), Leaf(14)), Branch(Leaf(12), Leaf(10))))
+    }
+  }
+
 }
