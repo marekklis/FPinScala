@@ -15,7 +15,10 @@ sealed trait Option[+A] {
     case Some(_) => _
   }
 
-  def flatMap[B](f: A => Option[B]): Option[B] = sys.error("todo")
+  def flatMap[B](f: A => Option[B]): Option[B] = this match {
+    case None => None
+    case Some(a) => f(a)
+  }
 
   def orElse[B >: A](ob: => Option[B]): Option[B] = sys.error("todo")
 
