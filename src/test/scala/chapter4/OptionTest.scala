@@ -1,6 +1,6 @@
 package chapter4
 
-import chapter4.Option.{map2, sequence}
+import chapter4.Option._
 import org.scalatest.FunSpec
 
 class OptionTest extends FunSpec {
@@ -37,15 +37,15 @@ class OptionTest extends FunSpec {
     }
   }
 
+  def Try[A](a: => A): Option[A] =
+    try Some(a)
+    catch {
+      case e: Exception => None
+    }
+
+  def parseInts(a: List[String]): Option[List[Int]] = sequence(a map (i => Try(i.toInt)))
+
   describe("parseInt") {
-    def Try[A](a: => A): Option[A] =
-      try Some(a)
-      catch {
-        case e: Exception => None
-      }
-
-    def parseInts(a: List[String]): Option[List[Int]] = sequence(a map (i => Try(i.toInt)))
-
     it("should return None") {
       assert(parseInts(List("1", "two", "3")) == None)
     }
@@ -53,6 +53,17 @@ class OptionTest extends FunSpec {
     it("should return Some((1,2,3))") {
       assert(parseInts(List("1", "2", "3")) == Some(List(1, 2, 3)))
     }
+  }
+
+  describe("traverse") {
+    it("should return None") {
+      assert(traverse(List("1", "two", "3"))((i: String) => Try(i.toInt)) == None)
+    }
+
+    it("should return Some((1,2,3))") {
+      assert(traverse(List("1", "2", "3"))((i: String) => Try(i.toInt)) == Some(List(1, 2, 3)))
+    }
+
   }
 
 }
