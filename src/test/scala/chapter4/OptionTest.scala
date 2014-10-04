@@ -37,4 +37,22 @@ class OptionTest extends FunSpec {
     }
   }
 
+  describe("parseInt") {
+    def Try[A](a: => A): Option[A] =
+      try Some(a)
+      catch {
+        case e: Exception => None
+      }
+
+    def parseInts(a: List[String]): Option[List[Int]] = sequence(a map (i => Try(i.toInt)))
+
+    it("should return None") {
+      assert(parseInts(List("1", "two", "3")) == None)
+    }
+
+    it("should return Some((1,2,3))") {
+      assert(parseInts(List("1", "2", "3")) == Some(List(1, 2, 3)))
+    }
+  }
+
 }
