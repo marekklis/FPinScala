@@ -52,4 +52,9 @@ object Either {
     case h :: t => h.flatMap(hh => sequence(t) map (hh :: _))
   }
 
+  def traverse[E, A, B](es: List[A])(f: A => Either[E, B]): Either[E, List[B]] =
+    es match {
+      case Nil => Right(Nil)
+      case h :: t => (f(h) map2 traverse(t)(f))(_ :: _)
+    }
 }

@@ -16,4 +16,15 @@ class EitherTest extends FunSpec {
     }
   }
 
+  describe("traverse") {
+    //    it("should return Left") {
+    //      assert(traverse(List("1", "two", "3"))(i => Try(i.toInt)) == Left(new NumberFormatException("For input string: \"two\"")))
+    //    }
+
+    it("should return Right((1,2,3))") {
+      assert(traverse(List("1", "2", "3"))(i => Try(i.toInt)) == Right(List(1, 2, 3)))
+    }
+
+  }
+
 }
