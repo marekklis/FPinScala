@@ -32,7 +32,13 @@ trait Stream[+A] {
     case Cons(h, t) => if (f(h())) Some(h()) else t().find(f)
   }
 
-  def take(n: Int): Stream[A] = sys.error("todo")
+  def take(n: Int): Stream[A] = {
+    if (n > 0) this match {
+      case Cons(h, t) if (n == 1) => Stream.cons(h(), Stream.empty)
+      case Cons(h, t) => Stream.cons(h(), t().take(n - 1))
+      case _ => Stream.empty
+    } else Stream.empty
+  }
 
   def drop(n: Int): Stream[A] = sys.error("todo")
 
