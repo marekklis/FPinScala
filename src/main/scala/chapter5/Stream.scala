@@ -51,7 +51,10 @@ trait Stream[+A] {
     case _ => Stream.empty
   }
 
-  def forAll(p: A => Boolean): Boolean = sys.error("todo")
+  def forAll(p: A => Boolean): Boolean = this match {
+    case Cons(h, t) => p(h()) && t().forAll(p)
+    case _ => true
+  }
 
   def startsWith[B](s: Stream[B]): Boolean = sys.error("todo")
 }

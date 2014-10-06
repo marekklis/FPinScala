@@ -32,4 +32,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("forAll") {
+    it("should return false") {
+      assert(!Stream(1, 2, 3, 4, 5).forAll(_ != 2))
+    }
+  }
+
 }
