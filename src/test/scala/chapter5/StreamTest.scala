@@ -20,4 +20,16 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("drop") {
+    it("should return Stream(4,5)") {
+      assert(Stream(1, 2, 3, 4, 5).drop(3).toList == List(4, 5))
+    }
+  }
+
+  describe("takeWhile") {
+    ignore("should return Stream(1,2,3)") {
+      assert(Stream(1, 2, 3, 4, 5).takeWhile(_ != 4).toList == List(1, 2, 3))
+    }
+  }
+
 }
