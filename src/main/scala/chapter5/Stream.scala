@@ -70,6 +70,9 @@ trait Stream[+A] {
       if (f(h)) Stream.cons(h, t)
       else t)
 
+  def append[B >: A](s: => Stream[B]): Stream[B] =
+    foldRight(s)((h, t) => Stream.cons(h, t))
+
   def startsWith[B](s: Stream[B]): Boolean = sys.error("todo")
 }
 

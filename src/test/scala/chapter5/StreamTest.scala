@@ -68,4 +68,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("append") {
+    it("should return Stream(1,2,3,4,5)") {
+      assert(Stream(1, 2, 3).append(Stream(4, 5)).toList == List(1, 2, 3, 4, 5))
+    }
+  }
+
 }
