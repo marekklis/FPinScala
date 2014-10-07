@@ -56,4 +56,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("map") {
+    it("should return Stream(2,4,6,8)") {
+      assert(Stream(1, 2, 3, 4).map(_ * 2).toList == List(2, 4, 6, 8))
+    }
+  }
+
 }

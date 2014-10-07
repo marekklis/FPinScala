@@ -62,6 +62,9 @@ trait Stream[+A] {
   def headOption: Option[A] =
     foldRight(None: Option[A])((h, _) => Some(h))
 
+  def map[B](f: A => B): Stream[B] =
+    foldRight(Empty: Stream[B])((h, t) => Stream.cons(f(h), t))
+
   def startsWith[B](s: Stream[B]): Boolean = sys.error("todo")
 }
 
