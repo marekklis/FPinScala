@@ -65,6 +65,11 @@ trait Stream[+A] {
   def map[B](f: A => B): Stream[B] =
     foldRight(Empty: Stream[B])((h, t) => Stream.cons(f(h), t))
 
+  def filter(f: A => Boolean): Stream[A] =
+    foldRight(Empty: Stream[A])((h, t) =>
+      if (f(h)) Stream.cons(h, t)
+      else t)
+
   def startsWith[B](s: Stream[B]): Boolean = sys.error("todo")
 }
 

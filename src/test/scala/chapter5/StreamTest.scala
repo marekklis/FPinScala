@@ -62,4 +62,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("filter") {
+    it("should return Stream(2,4)") {
+      assert(Stream(1, 2, 3, 4).filter(_ % 2 == 0).toList == List(2, 4))
+    }
+  }
+
 }
