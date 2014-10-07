@@ -74,4 +74,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("Stream") {
+    it("constant") {
+      assert(Stream.constant(4).take(5).toList == List(4, 4, 4, 4, 4))
+    }
+  }
+
 }
