@@ -59,6 +59,9 @@ trait Stream[+A] {
   def takeWhileViaFoldRight(p: A => Boolean): Stream[A] =
     foldRight(Stream.empty[A])((h, t) => if (p(h)) Stream.cons(h, t) else Stream.empty)
 
+  def headOption: Option[A] =
+    foldRight(None: Option[A])((h, _) => Some(h))
+
   def startsWith[B](s: Stream[B]): Boolean = sys.error("todo")
 }
 

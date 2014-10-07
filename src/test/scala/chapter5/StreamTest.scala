@@ -44,4 +44,16 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("headOption") {
+    it("should return Option(1)") {
+      assert(Stream(1).headOption == Some(1))
+    }
+    it("should return Option(1) for Stream(1, 2, 3)") {
+      assert(Stream(1, 2, 3).headOption == Some(1))
+    }
+    it("should return None") {
+      assert(Stream.empty.headOption == None)
+    }
+  }
+
 }
