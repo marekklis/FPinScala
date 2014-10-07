@@ -38,4 +38,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("takeWhileViaFoldRight") {
+    it("should return Stream(1,2,3)") {
+      assert(Stream(1, 2, 3, 4, 5).takeWhileViaFoldRight(_ != 4).toList == List(1, 2, 3))
+    }
+  }
+
 }
