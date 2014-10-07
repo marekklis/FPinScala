@@ -1,5 +1,6 @@
 package chapter5
 
+import chapter5.Stream.{constant, fibs, from, unfold}
 import org.scalatest.FunSpec
 
 class StreamTest extends FunSpec {
@@ -76,13 +77,16 @@ class StreamTest extends FunSpec {
 
   describe("Stream") {
     it("constant") {
-      assert(Stream.constant(4).take(5).toList == List(4, 4, 4, 4, 4))
+      assert(constant(4).take(5).toList == List(4, 4, 4, 4, 4))
     }
     it("from") {
-      assert(Stream.from(4).take(5).toList == List(4, 5, 6, 7, 8))
+      assert(from(4).take(5).toList == List(4, 5, 6, 7, 8))
     }
     it("fibs") {
-      assert(Stream.fibs.take(7).toList == List(0, 1, 1, 2, 3, 5, 8))
+      assert(fibs.take(7).toList == List(0, 1, 1, 2, 3, 5, 8))
+    }
+    it("unfold") {
+      assert(unfold(1)(x => Some((x * 2, x + 1))).take(4).toList == List(2, 4, 6, 8))
     }
   }
 
