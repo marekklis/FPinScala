@@ -81,6 +81,9 @@ class StreamTest extends FunSpec {
     it("from") {
       assert(Stream.from(4).take(5).toList == List(4, 5, 6, 7, 8))
     }
+    it("fibs") {
+      assert(Stream.fibs.take(7).toList == List(0, 1, 1, 2, 3, 5, 8))
+    }
   }
 
 }
