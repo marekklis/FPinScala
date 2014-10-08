@@ -1,5 +1,7 @@
 package chapter5
 
+import chapter5.Stream.unfold
+
 trait Stream[+A] {
 
   def toListRecursive: List[A] = this match {
@@ -75,6 +77,12 @@ trait Stream[+A] {
 
   def flatMap[B](f: A => Stream[B]): Stream[B] =
     foldRight(Empty: Stream[B])((h, t) => f(h).append(t))
+
+  def mapViaUnfold[B](f: A => B): Stream[B] =
+    unfold(this) {
+      case Cons(h, t) => Some(f(h()), t())
+      case _ => None
+    }
 
   def startsWith[B](s: Stream[B]): Boolean = sys.error("todo")
 }

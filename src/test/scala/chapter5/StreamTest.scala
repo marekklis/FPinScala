@@ -102,4 +102,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("mapViaUnfold") {
+    it("should return Stream(2,4,6,8)") {
+      assert(Stream(1, 2, 3, 4).mapViaUnfold(_ * 2).toList == List(2, 4, 6, 8))
+    }
+  }
+
 }
