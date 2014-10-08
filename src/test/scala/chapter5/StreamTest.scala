@@ -91,6 +91,9 @@ class StreamTest extends FunSpec {
     it("fibsViaUnfold") {
       assert(fibsViaUnfold.take(7).toList == List(0, 1, 1, 2, 3, 5, 8))
     }
+    it("fromViaUnfold") {
+      assert(fromViaUnfold(4).take(5).toList == List(4, 5, 6, 7, 8))
+    }
   }
 
 }
