@@ -125,4 +125,7 @@ object Stream {
 
   def constantViaUnfold[A](a: A): Stream[A] =
     unfold(a)(_ => Some(a, a))
+
+  val onesViaUnfold: Stream[Int] =
+    unfold(1)(_ => Some(1, 1))
 }

@@ -97,6 +97,9 @@ class StreamTest extends FunSpec {
     it("constantViaUnfold") {
       assert(constantViaUnfold(4).take(5).toList == List(4, 4, 4, 4, 4))
     }
+    it("onesViaUnfold") {
+      assert(onesViaUnfold.take(5).toList == List(1, 1, 1, 1, 1))
+    }
   }
 
 }
