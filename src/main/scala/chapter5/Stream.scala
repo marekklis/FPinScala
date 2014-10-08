@@ -84,6 +84,12 @@ trait Stream[+A] {
       case _ => None
     }
 
+  def takeViaUnfold(n: Int): Stream[A] =
+    unfold((this, n)) {
+      case (Cons(h, t), n) if (n > 0) => Some(h(), (t(), n - 1))
+      case _ => None
+    }
+
   def startsWith[B](s: Stream[B]): Boolean = sys.error("todo")
 }
 
