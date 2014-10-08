@@ -114,4 +114,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("takeWhileViaUnfold") {
+    it("should return Stream(1,2,3)") {
+      assert(Stream(1, 2, 3, 4, 5).takeWhileViaUnfold(_ != 4).toList == List(1, 2, 3))
+    }
+  }
+
 }
