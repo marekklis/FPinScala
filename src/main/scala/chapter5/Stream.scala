@@ -116,4 +116,7 @@ object Stream {
     case Some((h, s)) => cons(h, unfold(s)(f))
     case None => empty
   }
+
+  def fibsViaUnfold: Stream[Int] =
+    unfold((0, 1)) { case (f0, f1) => Some((f0, (f1, f0 + f1)))}
 }

@@ -1,6 +1,6 @@
 package chapter5
 
-import chapter5.Stream.{constant, fibs, from, unfold}
+import chapter5.Stream._
 import org.scalatest.FunSpec
 
 class StreamTest extends FunSpec {
@@ -87,6 +87,9 @@ class StreamTest extends FunSpec {
     }
     it("unfold") {
       assert(unfold(1)(x => Some((x * 2, x + 1))).take(4).toList == List(2, 4, 6, 8))
+    }
+    it("fibsViaUnfold") {
+      assert(fibsViaUnfold.take(7).toList == List(0, 1, 1, 2, 3, 5, 8))
     }
   }
 
