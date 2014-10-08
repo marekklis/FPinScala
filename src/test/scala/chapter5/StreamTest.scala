@@ -120,4 +120,10 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("zipWith") {
+    it("should return (5,7,9)") {
+      assert(Stream(1, 2, 3, 4).zipWith(Stream(4, 5, 6))(_ + _).toList == List(5, 7, 9))
+    }
+  }
+
 }
