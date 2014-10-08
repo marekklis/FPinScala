@@ -126,4 +126,13 @@ class StreamTest extends FunSpec {
     }
   }
 
+  describe("startsWith") {
+    it("should return true") {
+      assert(Stream(1, 2, 3).startsWith(Stream(1, 2)) == true)
+    }
+    it("should return false") {
+      assert(Stream(1, 2, 3).startsWith(Stream(1, 3)) == false)
+    }
+  }
+
 }
